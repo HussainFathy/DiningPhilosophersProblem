@@ -1,9 +1,5 @@
 package javafxapplication8;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
- */
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,13 +17,10 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-/**
- *
- * @author hussa
- */
+
 public class FiveDiningPhilosophersProblem extends Application {
 
-    static boolean[] chopsticks = {false, false, false, false, false};
+    static boolean[] chopsticks = {false, false, false, false, false}; // false if the chopsticks is not in use ; true if its not free
     static boolean[] isEating = {false, false, false, false, false};
     static boolean[] isHungry = {false, false, false, false, false};
     Philosopher p0 = new Philosopher(0);
@@ -61,41 +54,43 @@ public class FiveDiningPhilosophersProblem extends Application {
         circleb.setFill(Color.rgb(100, 10, 18));
 
 
-        /*philosopher 0*/
+        /*philosopher 0 Thinking */
         Circle circle0 = new Circle();
         circle0.setCenterX(270);
         circle0.setCenterY(582);
         circle0.setRadius(39);
         circle0.setFill(Color.BLACK);
 
-        /*philosopher 1*/
+        /*philosopher 1 Thinking */
         Circle circle1 = new Circle();
         circle1.setCenterX(506);
         circle1.setCenterY(582);
         circle1.setRadius(39);
         circle1.setFill(Color.BLACK);
 
-        /*philosopher 2*/
+        /*philosopher 2 Thinking */
         Circle circle2 = new Circle();
         circle2.setCenterX(550);
         circle2.setCenterY(370);
         circle2.setRadius(39);
         circle2.setFill(Color.BLACK);
 
-        /*philosopher 3*/
+        /*philosopher 3 Thinking */
         Circle circle3 = new Circle();
         circle3.setCenterX(388);
         circle3.setCenterY(265);
         circle3.setRadius(39);
         circle3.setFill(Color.BLACK);
 
-        /*philosopher 4*/
+        /*philosopher 4 Thinking */
         Circle circle4 = new Circle();
         circle4.setCenterX(223);
         circle4.setCenterY(378);
         circle4.setRadius(39);
         circle4.setFill(Color.BLACK);
-
+        
+        
+        /*philosopher 0 hungry Yellow Circle */
         Circle circleHun0 = new Circle();
         circleHun0.setCenterX(270);
         circleHun0.setCenterY(582);
@@ -103,13 +98,16 @@ public class FiveDiningPhilosophersProblem extends Application {
         circleHun0.setFill(Color.rgb(227, 225, 0));
         circleHun0.setVisible(false);
 
+        /*philosopher 1 hungry Yellow Circle */
         Circle circleHun1 = new Circle();
         circleHun1.setCenterX(506);
         circleHun1.setCenterY(582);
         circleHun1.setRadius(39);
         circleHun1.setFill(Color.rgb(227, 225, 0));
         circleHun1.setVisible(false);
-
+        
+        
+        /*philosopher 2 hungry Yellow Circle */
         Circle circleHun2 = new Circle();
         circleHun2.setCenterX(550);
         circleHun2.setCenterY(370);
@@ -117,6 +115,7 @@ public class FiveDiningPhilosophersProblem extends Application {
         circleHun2.setFill(Color.rgb(227, 225, 0));
         circleHun2.setVisible(false);
 
+        /*philosopher 3 hungry Yellow Circle */
         Circle circleHun3 = new Circle();
         circleHun3.setCenterX(388);
         circleHun3.setCenterY(265);
@@ -124,13 +123,17 @@ public class FiveDiningPhilosophersProblem extends Application {
         circleHun3.setFill(Color.rgb(227, 225, 0));
         circleHun3.setVisible(false);
 
+        /*philosopher 4 hungry Yellow Circle */
         Circle circleHun4 = new Circle();
         circleHun4.setCenterX(223);
         circleHun4.setCenterY(378);
         circleHun4.setRadius(39);
         circleHun4.setFill(Color.rgb(227, 225, 0));
         circleHun4.setVisible(false);
-
+        
+        
+        /*philosophers Eating blue Circles */
+        
         Circle circleEat0 = new Circle();
         circleEat0.setCenterX(270);
         circleEat0.setCenterY(582);
@@ -165,7 +168,9 @@ public class FiveDiningPhilosophersProblem extends Application {
         circleEat4.setRadius(39);
         circleEat4.setFill(Color.rgb(0, 0, 160));
         circleEat4.setVisible(false);
-
+        
+        
+        // static circles and lables at the top
         Circle circleEating = new Circle();
         circleEating.setCenterX(650);
         circleEating.setCenterY(72);
@@ -195,45 +200,9 @@ public class FiveDiningPhilosophersProblem extends Application {
         Label Thk = new Label("User is thinking :");
         Thk.setLayoutX(106);
         Thk.setLayoutY(62);
-        /*
-        /*
-         * 
-
-        Line line0 = new Line();
-        line0.setStartX(0.0f);
-        line0.setStartY(0.0f);
-        line0.setEndX(100.0f);
-        line0.setEndY(100.0f);
-        line0.setFill(Color.YELLOW);
-
-        Line line1 = new Line();
-        line1.setStartX(0.0f);
-        line1.setStartY(0.0f);
-        line1.setEndX(100.0f);
-        line1.setEndY(100.0f);
-        line1.setFill(Color.YELLOW);
-
-        Line line2 = new Line();
-        line2.setStartX(0.0f);
-        line2.setStartY(0.0f);
-        line2.setEndX(100.0f);
-        line2.setEndY(100.0f);
-        line2.setFill(Color.YELLOW);
-
-        Line line3 = new Line();
-        line3.setStartX(0.0f);
-        line3.setStartY(0.0f);
-        line3.setEndX(100.0f);
-        line3.setEndY(100.0f);
-        line3.setFill(Color.YELLOW);
-
-        Line line4 = new Line();
-        line4.setStartX(0.0f);
-        line4.setStartY(0.0f);
-        line4.setEndX(100.0f);
-        line4.setEndY(100.0f);
-        line4.setFill(Color.YELLOW);
-         */
+       
+        
+        
  /*philosopher 0 hungry button */
         ToggleButton btn0 = new ToggleButton();
         btn0.setLayoutX(188);
@@ -244,28 +213,28 @@ public class FiveDiningPhilosophersProblem extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                if (btn0.isSelected()) {
+                if (btn0.isSelected()) { // if the button is clicked
 
-                    Thread t = new Thread(new Runnable() {
+                    Thread t = new Thread(new Runnable() { // a thread is created
 
                         @Override
                         public void run() {
 
-                            circleHun0.setVisible(true);
+                            circleHun0.setVisible(true); // Yellow hungry circle is showed
 
-                            isHungry[0] = true;
+                            isHungry[0] = true; // the philosopher is marked as hungry 
                             try {
-                                if (p0.grab(0)) {
-                                    p0.sleep(1000);
-                                    circleHun0.setVisible(false);
+                                if (p0.grab(0)) { // try to grab the chopsticks if yes then :
+                                    p0.sleep(1000); // wait a sec to show the Yellow output 
+                                    circleHun0.setVisible(false); // hide the hungry circle
 
-                                    circleEat0.setVisible(true);
-                                    p0.eat();
-                                    p0.release(0);
+                                    circleEat0.setVisible(true); // shows the Blue "eating" circle
+                                    p0.eat();   // simulate eating by sleeping the process 
+                                    p0.release(0); // after eating the chopsticks are released 
 
                                     isHungry[0] = false;
                                     circleEat0.setVisible(false);
-                                    btn0.setSelected(false);
+                                    btn0.setSelected(false);  // if the toggle wasn't released then mark it as released  
 
                                 }
                             } catch (InterruptedException ex) {
@@ -275,12 +244,13 @@ public class FiveDiningPhilosophersProblem extends Application {
 
                     });
                     t.start();
-                } else {
+                } else { // if the button was relesed 
                     try {
-                        circleHun0.setVisible(false);
-                        circleEat0.setVisible(false);
+                        circleHun0.setVisible(false); // hide the hungry circle
+                        circleEat0.setVisible(false); // hide the eating circle 
                         isHungry[0] = false;
-                        p0.release(0);
+                        isEating[0] = false;
+                        p0.release(0); // chopsticks are released 
 
                     } catch (InterruptedException ex) {
                         Logger.getLogger(FiveDiningPhilosophersProblem.class.getName()).log(Level.SEVERE, null, ex);
@@ -336,6 +306,7 @@ public class FiveDiningPhilosophersProblem extends Application {
                         circleHun1.setVisible(false);
                         circleEat1.setVisible(false);
                         isHungry[1] = false;
+                        isEating[1] = false;
                         p1.release(1);
 
                     } catch (InterruptedException ex) {
@@ -391,6 +362,7 @@ public class FiveDiningPhilosophersProblem extends Application {
                         circleHun2.setVisible(false);
                         circleEat2.setVisible(false);
                         isHungry[2] = false;
+                        isEating[2] = false;
                         p2.release(2);
 
                     } catch (InterruptedException ex) {
@@ -447,6 +419,7 @@ public class FiveDiningPhilosophersProblem extends Application {
                         circleHun3.setVisible(false);
                         circleEat3.setVisible(false);
                         isHungry[3] = false;
+                        isEating[3] = false;
                         p3.release(3);
 
                     } catch (InterruptedException ex) {
@@ -503,6 +476,7 @@ public class FiveDiningPhilosophersProblem extends Application {
                         circleHun4.setVisible(false);
                         circleEat4.setVisible(false);
                         isHungry[4] = false;
+                        isEating[4] = false;
                         p4.release(4);
 
                     } catch (InterruptedException ex) {
@@ -704,7 +678,7 @@ public class FiveDiningPhilosophersProblem extends Application {
                 }
             }
         });
-        //shows all the elements in the GUI
+        //ADD all the elements to the GUI
         root.getChildren().add(btn0);
         root.getChildren().add(btn1);
         root.getChildren().add(btn2);
@@ -734,7 +708,7 @@ public class FiveDiningPhilosophersProblem extends Application {
         root.getChildren().add(Eat);
         root.getChildren().add(Thk);
 
-        primaryStage.setTitle("Dining philosepher ");
+        primaryStage.setTitle("Dining philosepher "); // GUI title
         primaryStage.setScene(scene);
 
         primaryStage.show();
@@ -742,7 +716,7 @@ public class FiveDiningPhilosophersProblem extends Application {
     }
 
     public static class Philosopher extends Thread {
-
+        
         public int number;
 
         Philosopher(int num) {
@@ -752,7 +726,7 @@ public class FiveDiningPhilosophersProblem extends Application {
 
         @Override
         public void run() {
-            System.out.println("thread is running...");
+            System.out.println("a thread is running...");
         }
         public Semaphore mutex = new Semaphore(1);
        //the method grabs the chopstick  
@@ -760,24 +734,24 @@ public class FiveDiningPhilosophersProblem extends Application {
         boolean grab(int phnum) throws InterruptedException {
             try {
 
-                while (!isfree(phnum)) {
-
+                while (!isfree(phnum)) {    // while one of the right or left Philosopher is eating
+                    // sleep a random time from 100 ms to 2 sec then check again
                     int min = 100;
                     int max = 2000;
-                    int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
+                    int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min); 
                     this.sleep(random_int);
 
                 }
-
+                
                 //acquires a permit from the semaphore  
                 mutex.acquire();
-                chopsticks[phnum] = true;
+                chopsticks[phnum] = true;  
                 chopsticks[(phnum + 4) % 5] = true;
                 isEating[phnum] = true;
                 mutex.release();
                 return true;
-
-            } catch (Exception e) {
+                
+            } catch (Exception e) { // if i couldn't acquire the mutex , it sleeps random time then try again 
                 e.printStackTrace(System.out);
                 int min = 8000;
                 int max = 10000;
